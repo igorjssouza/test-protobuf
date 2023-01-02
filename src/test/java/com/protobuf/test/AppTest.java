@@ -17,9 +17,31 @@ public class AppTest
     public void testGetAccountOwner()
     {
 	    String name = "Dirack";
-	    Integer accountNumber = 11111;
-	    Double deposit = 300;
-	Product p = new Product(name, accountNumber, deposit);
-	assertEquals( name, p.getName() );
+	    int accountNumber = 11111;
+	    double deposit = 300.0;
+	Product product = new Product(name, accountNumber, deposit);
+	assertEquals(name, product.getName());
+	assertEquals(accountNumber, product.getAccountNumber());
+	assertEquals(deposit, product.getDeposit(), 0.001);
+    }
+
+    @Test
+    public void testGetAccountNumber()
+    {
+	    String name = "Dirack";
+	    int accountNumber = 11111;
+	    double deposit = 300.0;
+	Product product = new Product(name, accountNumber, deposit);
+	assertEquals(accountNumber, product.getAccountNumber());
+    }
+    
+    @Test
+    public void testGetAccountDeposit()
+    {
+	    String name = "Dirack";
+	    int accountNumber = 11111;
+	    double deposit = 300.0;
+	Product product = new Product(name, accountNumber, deposit);
+	assertEquals(deposit, product.getDeposit(), 0.001);
     }
 }
