@@ -1,9 +1,11 @@
 package com.protobuf.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Test;
 import entities.Product;
+import entities.InvalidDepositException;
 
 /**
  * Test suite for App.
@@ -44,4 +46,15 @@ public class AppTest
 	Product product = new Product(name, accountNumber, deposit);
 	assertEquals(deposit, product.getDeposit(), 0.001);
     }
+
+    @Test
+    public void testThrowExceptionForInvalidDeposit(){
+
+	    Product product = new Product("Dirack",11111);
+
+	    assertThrows(InvalidDepositException.class,()->{
+			product.in(-100.0);	
+		});
+	}
+
 }
