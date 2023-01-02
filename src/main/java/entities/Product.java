@@ -1,14 +1,14 @@
 package entities;
 
 public class Product {
-	// encapsulado usando private
+
 	private String name;
 	private int accountNumber;
 	private double deposit;
 	
-	//=================== CONSTRUTORES ============================
-
-	
+	/**
+	* TODO
+	*/
 	public Product(String name, int accountNumber, double deposit) {
 
 		this.name = name;
@@ -22,39 +22,59 @@ public class Product {
 		this.accountNumber = accountNumber;
 	}
 	
-	//========================= DESENCAPSULADORES =======================
-	// por convenção esses metodos são colocados depois dos construtores
+	/**
+	 * Returns accounts owner 
+	*/
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets accounts owner
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Returns accounts number (Integer - ID)
+	 */
 	public int getAccountNumber() {
 		return accountNumber;
 	}
 
+	/**
+	 * Returns accounts balance
+	 *
+	 * TODO: To change the attribute name 'deposit' to 'balance'
+	 */
 	public double getDeposit() {
 		return deposit;
 	}
 
-
-	
-	
-	//================ MÉTODOS ==========================
-	
+	/**
+	 * Deposit in account
+	 *
+	 * @param deposit deposit value to add to accounts balance
+	 */
 	public void in(double deposit) {
 		this.deposit +=  deposit;
 		
 	}
 	
+	/**
+	 * Withdraw in account
+	 *
+	 * @param deposit value to withdraw from accounts balance
+	 */
 	public void out(double deposit) {
 		this.deposit -=  deposit + 5.0;
 		
 	}
 
+	/**
+	 * TODO
+	 */
 	public String toString() {
 		return "Account " + accountNumber 
 				+ ", Holder: " 

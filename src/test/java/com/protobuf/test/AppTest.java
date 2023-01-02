@@ -1,20 +1,25 @@
 package com.protobuf.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import entities.Product;
 
 /**
- * Unit test for simple App.
+ * Test suite for App.
  */
 public class AppTest 
 {
     /**
-     * Rigorous Test :-)
+     * Test getters and setters methods
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void testGetAccountOwner()
     {
-        assertTrue( true );
+	    String name = "Dirack";
+	    Integer accountNumber = 11111;
+	    Double deposit = 300;
+	Product p = new Product(name, accountNumber, deposit);
+	assertEquals( name, p.getName() );
     }
 }
