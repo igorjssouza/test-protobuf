@@ -2,6 +2,8 @@ package com.protobuf.test;
 
 import java.util.Locale;
 import java.util.Scanner;
+
+import entities.InvalidInput;
 import entities.Product;
 
 /**
@@ -27,16 +29,25 @@ public class App {
 		prompt = new Scanner(System.in);
 		
 		runCLIMenu();
+		
 
 		prompt.close();
+		
+		
 	}
 
 	static void runCLIMenu(){
 
 		while(true){
 			if(account != null) System.out.println(account);
+			String userEntry;
 			System.out.println("Choose an option:\n0 - Exit\n1 - New account\n2 - Update account");
-			int option = prompt.nextInt();
+			userEntry = prompt.nextLine();
+			while (InvalidInput.checkInput(userEntry)) {
+				System.out.print("Enter first numbers (no letters): ");
+				userEntry =  prompt.nextLine();
+			}
+			int option = Integer.parseInt(userEntry);
 			switch (option){
 				case 0:
 					return;
