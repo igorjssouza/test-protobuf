@@ -5,26 +5,38 @@ import java.util.Scanner;
 import entities.Product;
 
 /**
- * TODO
+ * Bank Command Line Interface (CLI)
  */
 public class App {
+
+	static Scanner prompt;
+
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner(System.in);
 		
-		//copnstrutor padrão
-		Product product;		
+		prompt = new Scanner(System.in);
+		
+		runCLIMenu();
+
+		prompt.close();
+	}
+
+	static void runCLIMenu(){
+
+		//while(true){
+
+		Product product;
 		System.out.print("Enter account number: ");
-		int accountNumber = sc.nextInt();
+		int accountNumber = prompt.nextInt();
 		System.out.print("Enter account holder: ");
-		sc.nextLine();
-		String name = sc.nextLine();
+		prompt.nextLine();
+		String name = prompt.nextLine();
 		System.out.println("Is there an initial deposit (y/n)? ");
-		char yN = sc.next().charAt(0);
+		char yN = prompt.next().charAt(0);
 	
 		if (yN == 'y') {
 			System.out.print("Enter initial deposit value: ");
-			double deposit = sc.nextDouble();
+			double deposit = prompt.nextDouble();
 			product = new Product(name, accountNumber, deposit);
 		} else {
             product = new Product(name, accountNumber);	
@@ -36,23 +48,17 @@ public class App {
 		
 		System.out.println();
 		System.out.print("Enter a deposit value: ");
-		double deposit = sc.nextDouble();
+		double deposit = prompt.nextDouble();
 		System.out.println("Update account data:");	
 		product.in(deposit);
 		System.out.println(product);
 		System.out.println();
 		
 		System.out.print("Enter a withdraw value: ");
-		deposit = sc.nextDouble();
+		deposit = prompt.nextDouble();
 		System.out.println("Update account data:");	
 		product.out(deposit);
 		System.out.println(product);
-		
-		
-		
-		
-		
-				
-		sc.close();
+			
 	}
 }
