@@ -1,5 +1,9 @@
 package entities;
 
+/**
+ * TODO This class represents a bank account. The classname is obviously not clear
+ * and it should be changed in next versions
+ */
 public class Product {
 
 	private String name;
@@ -16,6 +20,9 @@ public class Product {
 		this.deposit = deposit;
 	}
 	
+	/**
+	 * TODO
+	 */
 	public Product(String name, int accountNumber) {
 
 		this.name = name;
@@ -63,18 +70,18 @@ public class Product {
 	}
 	
 	/**
-	 * Withdraw in account
+	 * Withdraw from account
 	 *
 	 * @param deposit value to withdraw from accounts balance
 	 */
 	public void out(double deposit) {
 		this.deposit -=  deposit + 5.0;
-		
 	}
 
 	/**
 	 * TODO
 	 */
+	@Override
 	public String toString() {
 		return "Account " + accountNumber 
 				+ ", Holder: " 
