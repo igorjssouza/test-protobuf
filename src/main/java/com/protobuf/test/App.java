@@ -15,6 +15,7 @@ public class App {
 	 * The CLI prompt to receive data from terminal
 	 */
 	static Scanner prompt;
+	static String userEntry;
 
 	/**
 	 * the bank account
@@ -29,25 +30,23 @@ public class App {
 		prompt = new Scanner(System.in);
 		
 		runCLIMenu();
-		
 
 		prompt.close();
-		
-		
 	}
 
 	static void runCLIMenu(){
+		
 
-		while(true){
+		while (true) {
 			if(account != null) System.out.println(account);
-			String userEntry;
 			System.out.println("Choose an option:\n0 - Exit\n1 - New account\n2 - Update account");
-			userEntry = prompt.nextLine();
+			userEntry = prompt.next();
 			while (InvalidInput.checkInput(userEntry)) {
 				System.out.print("Enter first numbers (no letters): ");
-				userEntry =  prompt.nextLine();
-			}
+				userEntry =  prompt.next();
+			}			
 			int option = Integer.parseInt(userEntry);
+			System.out.print(option);
 			switch (option){
 				case 0:
 					return;

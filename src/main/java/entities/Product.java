@@ -65,7 +65,7 @@ public class Product {
 	 * @param deposit deposit value to add to accounts balance
 	 */
 	public void in(double deposit) {
-		if (deposit <=0) throw new InvalidDepositException();
+		if (deposit <=0) throw new InvalidDepositException(); 
 		this.deposit +=  deposit;
 	}
 	
